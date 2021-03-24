@@ -9,75 +9,59 @@ and slow-learning target networks from DQN, and it is based on DPG, which can op
 
 
 ### Hyper-parameters
-```python
-memory_params = {
-    'buffer_size': int(1e6),        # replay buffer size
-    'batch_size': 128,              # minibatch size
-    'seed': 0,                      # Seed to generate random numbers
-}
-```
-
-```python
-params = {
-    'gamma': 0.99,                      # discount factor
-    'tau': 0.15,                        # for soft update of target parameters
-    'update_every': 1,                  # update parameters per this number
-    'lr_actor': 7e-4,                   # learning rate of the Actor
-    'lr_critic': 3e-3,                  # learning rate of the Critic
-    'seed': 0,                          # Seed to generate random numbers
-    'actor_units': [512, 256],          # Number of nodes in hidden layers of the Actor
-    'critic_units': [512, 256],         # Number of nodes in hidden layers of the Critic
-    'weight_decay': 0,                  # L2 weight decay
-    'noise_theta': 0.15,                # Theta of Ornstein-Uhlenbeck process
-    'noise_sigma': 0.01,                # Sigma of Ornstein-Uhlenbeck process
-}
-```
+Agent default hyperparameters:
+BUFFER_SIZE = int(1e6)  # Replay buffer size
+BATCH_SIZE = 256        # Batch size #128
+GAMMA = 0.99            # Discount Factor #0.99
+TAU = 1e-3              # Soft update of target parameters
+LR_ACTOR = 1e-4         # learning rate of the actor 
+LR_CRITIC = 1e-4        # learning rate of the critic
+WEIGHT_DECAY = 0        # L2 weight decay
+ACTOR_FC1_UNITS = 256   # Number of units for L1 in the actor model
+ACTOR_FC2_UNITS = 128   # Number of units for L2 in the actor model
+CRITIC_FCS1_UNITS = 256 # Number of units for L1 in the critic model
+CRITIC_FC2_UNITS = 128  # Number of units for L2 in the critic model
+ADD_OU_NOISE = True     # Toggle Ornstein-Uhlenbeck noisy relaxation process
+THETA = 0.15            # k/gamma -> spring constant/friction coefficient [Ornstein-Uhlenbeck]
+MU = 0.                 # x_0 -> spring length at rest [Ornstein-Uhlenbeck]
+SIGMA = 0.2             # root(2k_B*T/gamma) -> Stokes-Einstein for effective diffision [Ornstein-Uhlenbeck]
 
 I tried several learning rates for Actor and Critic among [1e-2, 3e-3, 1e-3, 7e-4, 3e-4, 1e-4].<br>
-From those tests, 7e-4(lr of Actor) and 3e-3(lr of Critic) were best.<br>
+From tests, 1e-4(lr of Actor) and 1e-4(lr of Critic) were best.<br>
 
-Also, I tuned number of nodes in layers of Actor and Critic among [(1024, 512), (512, 256), (128, 64)].<br>
-(512, 256) was best.<br>
+Number of nodes in layers of Actor and Critic among [(512, 256), (256, 128), (128, 64)].<br>
+(256, 128) was best.<br>
 
 Sigma of Ornstein-Uhlenbeck process was one of critical points.<br>
-I already found it on previous Reacher project, and tested sigma with [0.2, 0.1, 0.01, 0.001].<br>
-0.01 was best for this environment.<br>
-
-I adjusted tau significantly for fast learning.<br>
-The test started from tau = 0.001, but I cannot see any learning progress under 500 tries.<br>
-I tested tau with [0.3, 0.2, 0.15, 0.1, 0.01, 0.001],<br>
-tau = 0.15 made earliest to reach on 0.5 score after 53 episodes.<br>
-With tau = 0.01, it reached on 0.5 score after 254 episodes.
+0.2 was best for this environment.<br>
 
 
-### Model architectures
+### Model architectures of this project
 There are two neural networks as the actor and the critic.
 
 * The Actor
-1. First layer: (input: state size, 512)
-   Activation function: Leaky ReLU
-   Batch normalization: (512)
-2. Second layer: (512, 256)
-   Activation function: Leaky ReLU
+1. First layer: (input: state size, 256)
    Batch normalization: (256)
-3. Output layer: (256, action size)
+   Activation function: Leaky ReLU
+2. Second layer: (256, 128)
+   Activation function: Leaky ReLU
+3. Output layer: (128, action size)
    Activation function: Tanh
 
 * The Critic
-1. First layer: (input: state size, 512)
+1. First layer: (input: state size, 256)
    Activation function: Leaky ReLU
-   Batch normalization: (512)
-2. Second layer: (512 + action size, 256)
+   Batch normalization: (256)
+2. Second layer: (256 + action size, 128)
    Activation function: Leaky ReLU
-3. Output layer: (256, 1)
+3. Output layer: (128, 1)
    Activation function: Linear
 
 Leaky ReLU was used instead of ReLU for better performance.<br>
-Also, batch normalization made an improvement.
 
 ### Plot of Rewards
-![Plot of rewards](maddpg_plot.png)
+![Plot of rewards](pr2.png)
 
 ### Ideas for Future Work
-1. In this project, only MADDPG was tested. Multi agent PPO/TRPO or other algorithms can be tested.
-2. More complex model can be tested like 3 or more layers instead of 2 layers. Also, dropout could be applied.
+D4PG implementation
+
