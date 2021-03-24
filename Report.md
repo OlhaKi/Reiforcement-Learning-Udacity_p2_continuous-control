@@ -1,7 +1,8 @@
 ### Learning algorithm
     Deep Deterministic Policy Gradient (DDPG) is a model-free off-policy algorithm for learning continous actions.
 
-    It combines ideas from DPG (Deterministic Policy Gradient) and DQN (Deep Q-Network). It uses Experience Replay and slow-learning target networks from DQN, and it is based on DPG, which can operate over continuous action spaces.
+    It combines ideas from DPG (Deterministic Policy Gradient) and DQN (Deep Q-Network). It uses Experience Replay 
+ and slow-learning target networks from DQN, and it is based on DPG, which can operate over continuous action spaces.
     This tutorial closely follow this paper [Continuous control with deep reinforcement learning](http://codsim.com/reinforcement-learning/deep-deterministic-policy-gradient)
 ### Pseudocode
 ![DDPG](Images/DDPG.png)
