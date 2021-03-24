@@ -9,13 +9,19 @@ and slow-learning target networks from DQN, and it is based on DPG, which can op
 
 
 ### Hyper-parameters
-Agent default hyperparameters:
-BUFFER_SIZE = int(1e6)  # Replay buffer size
-BATCH_SIZE = 256        # Batch size #128
-GAMMA = 0.99            # Discount Factor #0.99
-TAU = 1e-3              # Soft update of target parameters
-LR_ACTOR = 1e-4         # learning rate of the actor 
-LR_CRITIC = 1e-4        # learning rate of the critic
+Agent default hyperparameters:<br>
+BUFFER_SIZE = int(1e6)  # Replay buffer size<br>
+
+BATCH_SIZE = 256        # Batch size #128<br>
+
+GAMMA = 0.99            # Discount Factor #0.99<br>
+
+TAU = 1e-3              # Soft update of target parameters<br>
+
+LR_ACTOR = 1e-4         # learning rate of the actor <br>
+
+LR_CRITIC = 1e-4        # learning rate of the critic<br>
+
 WEIGHT_DECAY = 0        # L2 weight decay
 ACTOR_FC1_UNITS = 256   # Number of units for L1 in the actor model
 ACTOR_FC2_UNITS = 128   # Number of units for L2 in the actor model
@@ -60,7 +66,7 @@ There are two neural networks as the actor and the critic.
 Leaky ReLU was used instead of ReLU for better performance.<br>
 
 ### Plot of Rewards
-![Plot of rewards](pr2.png)
+![Plot of rewards](/Images/pr2.png)
 
 ### Ideas for Future Work
 D4PG implementation
