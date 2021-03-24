@@ -5,7 +5,7 @@ and slow-learning target networks from DQN, and it is based on DPG, which can op
     This tutorial closely follow this paper [Continuous control with deep reinforcement learning](http://codsim.com/reinforcement-learning/deep-deterministic-policy-gradient)
     
 ### Pseudocode
-![DDPG](Images/DDPG.png)
+![DDPG](Images/DDPG1.jpg)
 
 
 ### Hyper-parameters
