@@ -3,6 +3,10 @@ Deep Deterministic Policy Gradient[(MADDPG)](https://arxiv.org/abs/1706.02275) a
 DDPG applies actor-critic model-free policy gradient method for continuous spaces.<br>
 The centralized critic with deterministic policies were effective in MADDPG.
 
+### Pseudocode
+[DDPG](Images/index.jpg)
+
+
 ### Hyper-parameters
 ```python
 memory_params = {
