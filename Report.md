@@ -4,7 +4,7 @@ DDPG applies actor-critic model-free policy gradient method for continuous space
 The centralized critic with deterministic policies were effective in MADDPG.
 
 ### Pseudocode
-[DDPG](Images/index.jpg)
+![DDPG](Images/index.jpg)
 
 
 ### Hyper-parameters
