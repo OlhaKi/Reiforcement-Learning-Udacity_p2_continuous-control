@@ -1,8 +1,8 @@
 ### Learning algorithm
-Deep Deterministic Policy Gradient[(MADDPG)](https://arxiv.org/abs/1706.02275) algorithm was used for this training.<br>
-DDPG applies actor-critic model-free policy gradient method for continuous spaces.<br>
-The centralized critic with deterministic policies were effective in MADDPG.
+    Deep Deterministic Policy Gradient (DDPG) is a model-free off-policy algorithm for learning continous actions.
 
+    It combines ideas from DPG (Deterministic Policy Gradient) and DQN (Deep Q-Network). It uses Experience Replay and slow-learning target networks from DQN, and it is based on DPG, which can operate over continuous action spaces.
+    This tutorial closely follow this paper [Continuous control with deep reinforcement learning](http://codsim.com/reinforcement-learning/deep-deterministic-policy-gradient)
 ### Pseudocode
 ![DDPG](Images/DDPG.png)
 
