@@ -25,7 +25,7 @@ class Agent():
         
         """Initialize an Agent object.
         
-        Values based on: https://arxiv.org/pdf/1709.06560.pdf
+        
         
         Params
         ======
