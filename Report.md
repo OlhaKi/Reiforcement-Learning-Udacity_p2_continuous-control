@@ -64,7 +64,7 @@ There are two neural networks as the actor and the critic.
 Leaky ReLU was used instead of ReLU for better performance.<br>
 
 ### Plot of Rewards
-(the agent receives an average reward (over 100 episodes) of at least +30 )
+The result satisfies the goal of this project as the average (over 100 episodes) of those average scores is at least +30.
 ![Plot of rewards](/Images/pr2.png)
 
 ### Ideas for Future Work
