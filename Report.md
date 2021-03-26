@@ -1,5 +1,4 @@
-# Project 2: Continuous Control
-The first version contains a single agent.
+# Project 2: Continuous Control(the first version contains a single agent).
 
 ### Learning algorithm
 Deep Deterministic Policy Gradient (DDPG) is a model-free off-policy algorithm for learning continous actions.
