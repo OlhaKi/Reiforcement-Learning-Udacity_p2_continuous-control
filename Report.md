@@ -1,4 +1,5 @@
-# Project 2: Continuous Control(the first version contains a single agent).
+# Project 2: Continuous Control
+## (the first version contains a single agent).
 
 ### Learning algorithm
 Deep Deterministic Policy Gradient (DDPG) is a model-free off-policy algorithm for learning continous actions.
@@ -63,6 +64,7 @@ There are two neural networks as the actor and the critic.
 Leaky ReLU was used instead of ReLU for better performance.<br>
 
 ### Plot of Rewards
+(the agent receives an average reward (over 100 episodes) of at least +30 )
 ![Plot of rewards](/Images/pr2.png)
 
 ### Ideas for Future Work
